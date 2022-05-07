@@ -99,5 +99,3 @@ activity_monitoring_data_no_NA <- left_join(activity_monitoring_data, avg_daily_
   transmute(steps = coalesce(steps, avg_steps), date, interval) 
 head(activity_monitoring_data_no_NA)
 ```
-
-
