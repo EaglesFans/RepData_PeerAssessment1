@@ -1,25 +1,54 @@
 ---
-title: "Reproducible Research: Peer Assessment 1"
-output: 
-  html_document:
-    keep_md: true
+title: "PA1_template"
+author: "Choong-Hoon Hyun"
+date: "5/7/2022"
+output: html_document
 ---
+# Peer-graded Assignment: Reproducible Research Week 2 Course Proejct 1
 
+## Loading and preprocessing the data 
 
-## Loading and preprocessing the data
+### Download file, load the dataset to R, and process/transforam the data into a format suitable for the analysis
+```{r Loading and Preprocessing the data into a format sutable for the analysis, echo=TRUE}
+fileUrl <- "https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2Factivity.zip"
+f <- file.path(getwd(), "activity.zip")
+download.file(fileUrl, f, curl = "method")
+unzip(zipfile = "activity.zip")
 
+activity_monitoring_data <- read.csv("activity.csv")
+activity_monitoring_data$date <- as.Date(activity_monitoring_data$date, "%Y-%m-%d")
 
+```
 
 ## What is mean total number of steps taken per day?
 
+###  1. Calculate the total number of steps taken per day
+#### Load ggplot2
+```{r loading ggplot2, echo=TRUE}
+library(ggplot2)
+```
 
+```{r Make dataset for the total number of steps taken per day, echo=TRUE}
+steps_per_day <- split(activity_monitoring_data, activity_monitoring_data$date)
+total_steps <- sapply(steps_per_day, function(x) {
+  sum(x[, "steps"])
+})
+total_steps_df <- as.data.frame(total_steps)
+head(total_steps_df)
+```
+### 2. If you do not understand the difference between a histogram and a barplot, research the difference between them. Make a histogram of the total number of steps taken each day
+#### Plot a histogram of the total number of steps taken each day
+```{r Histogram of the total number of steps taken each day, echo=TRUE}
+ggplot(total_steps_df, aes(total_steps)) + geom_histogram(binwidth = 1000, fill = "white", col = "blue") +
+  labs(x= "Steps", y = "Frequency", title = "Total Number of Steps Taken each Day (Histogram)")
+```
 
-## What is the average daily activity pattern?
-
-
-
-## Imputing missing values
-
-
-
-## Are there differences in activity patterns between weekdays and weekends?
+### 3. Calculate and report the mean and median of the total number of steps taken per day
+#### Mean of the total number of steps taken per day
+```{r Mean of the total number of steps taken per day, echo=TRUE}
+mean(total_steps_df$total_steps, na.rm = TRUE)
+```
+#### Median of the total number of steps taken per day
+```{r Median of the total number of steps taken per day, echo=TRUE}
+median(total_steps_df$total_steps, na.rm = TRUE)
+```
