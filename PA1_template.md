@@ -311,4 +311,4 @@ ggplot(avg_daily_steps_total, aes(interval, average_steps)) + geom_line(aes(colo
   labs(x = "5-minute intervals", y = "Average Number of Steps", title = "Average Daily Steps Across All weekdays or weekends")
 ```
 
-![plot of chunk plot of average_daily_steps across all weekdays and weekends](figure/plot of average_daily_steps across all weekdays and weekends-1.png)
+![plot of chunk plot of average_daily_steps across all weekdays and weekends](<figure/plot of average_daily_steps across all weekdays and weekends-1.png>)
