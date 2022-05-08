@@ -130,7 +130,7 @@ ggplot(avg_daily_steps, aes(interval, avg_steps)) + geom_line(col = "orange") +
   labs(x = "5-minute intervals", y = "Average Number of Steps", title = "Average Daily Steps Across All Days")
 ```
 
-![plot of chunk Plot a time series plot](figure/Plot a time series plot-1.png)
+![plot of chunk Plot a time series plot](figure/Plot%20a%20time%20series%20plot-1.png)
   
 ### 2. Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
 
