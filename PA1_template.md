@@ -214,7 +214,7 @@ ggplot(total_steps_no_NA_df, aes(steps_no_NA)) + geom_histogram(binwidth = 1000,
   labs(x = "Steps", y = "Frequency", title = "Total Number of Steps Taken each Day w/o NAs (Histogram)")
 ```
 
-![plot of chunk Histogram of the total number of steps taken each day with no NA dataset](figure/Histogram of the total number of steps taken each day with no NA dataset-1.png)
+![plot of chunk Histogram of the total number of steps taken each day with no NA dataset](<figure/Histogram of the total number of steps taken each day with no NA dataset-1.png>)
 
 #### Calculate and report mean and median total number of steps taken per day
 
